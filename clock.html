@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/css/clock.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <title>Tik My Tok</title>
+</head>
+<body>
+    <section class="l_horloge container">
+        <div class="l_horloge_container grid">
+            <div class="l_horloge_content grid">
+                <div class="l_horloge_circle">
+                    <span class="l_horloge_twelve"></span>
+                    <span class="l_horloge_three"></span>
+                    <span class="l_horloge_six"></span>
+                    <span class="l_horloge_nine"></span>
+
+                    <div class="l_horloge_rounder"></div>
+                    <div class="l_horloge_hours" id="l_horloge_hours"></div>
+                    <div class="l_horloge_minutes" id="l_horloge_minutes"></div>
+                    <div class="l_horloge_seconds" id="l_horloge_seconds"></div>
+                </div>     
+                
+                <!-- light/dark Mode -->
+                <div class="l_horloge_theme">
+                    <i class='bx bxs-moon' id="theme_button"></i>
+                </div>
+            </div>
+
+
+           
+
+            <div>
+                <div class="l_horloge_text">
+                    <div class="text_hour" id="text_hour">
+
+                    </div>
+                    &nbsp;
+                    <div class="text_minute" id="text_minute">
+
+                    </div>
+                    <div class="text_h" id="text_h">
+                        H
+                    </div>
+                </div>
+            
+                <div class="l_horloge_date">
+                    <span id="date_dy">
+
+                    </span>
+                    <span id="date_dd">
+
+                    </span>
+                    <span id="date_mm">
+                        
+                    </span>
+                    <span id="date_yy">
+
+                    </span>
+                </div>
+            </div>
+            <a href="https://www.ferrari.com/en-KE" class="l_horloge_logo">
+                made by ferari
+            </a>
+        </div>
+    </section>
+    
+    <script src="/assets/js/clock.js"></script>
+</body>
+</html>
+
+
+
+<!-- 
+    clock has an issue when it comes to the rounding effect that makes it look like it is emerging from the screen. still have to work on that. 
+
+
+    coming to do dark mode later on for the watch. 
+ -->

@@ -1,0 +1,280 @@
+@import url('https://fonts.googleapis.com/css2?family=Marcellus&display=swap');
+
+
+:root {
+    /* colors */
+    --hue-clr: 120;
+
+    --first-clr: hsl(var(--hue-clr), 100%, 76%) ;
+    --title-clr: hsl(var(--hue-clr), 100%, 76%);
+    --text-clr: hsl(var(--hue-clr), 100%, 76%);
+    --text-light-clr: hsl(var(--hue-clr), 83%, 32%);
+    /* --wht-clr: #39d688; */
+    --wht-clr: #f2f3f4;
+    --body-clr: hsl(var(--hue-clr), 50%, 50%);
+
+    /* fonts */
+    --body-fnt: 'Marcellus', serif;
+    --xlg-fnt: 3rem;
+    --nm-fnt: .85rem;
+    --sm-fnt: .75rem;
+    --xsm-clr: .624rem;
+
+    --font-reg: 400;
+
+    /* margin shortforms: --mb-1-5 is margin bottom 1.5rem*/
+
+    /* z index */
+    --z-nm: 1;
+    --z-tooltip: 10;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+
+}
+
+body {
+    margin: 0;
+    font-family: var(--body-fnt);
+    background-color: var(--wht-clr);
+    color: var(--text-clr);
+
+}
+
+a {
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+
+.container {
+    /* max-width: 968px; */
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.grid {
+    display: grid;
+
+}
+
+
+
+/* dark theme button */
+.l_horloge_theme {
+    font-size: 20px;
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    display: flex;
+    padding: .45rem;
+    border-radius: 50%;
+    box-shadow: inset -1px -1px 1px hsla(var(--hue-clr), 0%, 100%, 1),
+                1px 1px 1px hsla(var(--hue-clr), 30%, 85%, 1);
+
+    cursor: pointer;
+    color: #9c9c9c;
+    /* opacity: .75; */
+    /* color: #000; */
+}
+
+
+/* the l'horloge (clock)*/
+.l_horloge_container {
+    height: 100vh;
+    grid-template-rows: 1fr max-content;
+} 
+
+.l_horloge_circle {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    /* box-shadow: -10px -10px 20px var(--wht-clr),
+                6px 6px 20px hsla(var(--hue-clr), 45%, 85%, .5), 
+                inset 6px 6px 20px hsla(var(--hue-clr), 45%, 85%, .5), 
+                inset -10px -10px 20px var(--wht-clr); */
+    box-shadow: -10px -10px 20px var(--wht-clr),
+                10px 10px 20px hsla(120, 5%, 80%, .35), 
+                inset 10px 10px 20px hsla(120, 5%, 80%, .35), 
+                inset -10px -10px 20px var(--wht-clr);
+    border-radius: 50%;
+    justify-self: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.l_horloge_content {
+    align-self: center;
+    row-gap: 3.5rem;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+}
+
+.l_horloge_twelve, 
+.l_horloge_six {
+    transform: translateX(-50%) rotate(90deg);
+}
+
+.l_horloge_twelve {
+    top: 1.25rem;
+    left: 50%;
+}
+
+.l_horloge_three {
+    top: 50%;
+    right: .75rem;
+}
+
+.l_horloge_six {
+    bottom: 1.25rem;
+    left: 50%;
+}
+
+.l_horloge_nine {
+    bottom: 50%;
+    left: .75rem;
+}
+
+.l_horloge_twelve, 
+.l_horloge_three,
+.l_horloge_six,
+.l_horloge_nine {
+    position: absolute;
+    width: 1rem;
+    height: 2.2px;
+    background-color: var(--body-clr);
+}
+
+
+.l_horloge_rounder {
+    width: .55rem;
+    height: .55rem;
+    background-color: var(--body-clr);
+    border-radius: 50%;
+    border: .3px solid var(--body-clr);
+    z-index: var(--z-tooltip);
+}
+
+.l_horloge_hours, 
+.l_horloge_minutes,
+.l_horloge_seconds {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    opacity: .75;
+}
+
+.l_horloge_hours {
+    width: 95px;
+    height: 95px;   
+}
+
+.l_horloge_hours::before {
+    content: '';
+    position: absolute;
+    /* background-color: var(--text-clr); */
+    background-color: #9c9c9c;
+    width: .25rem;
+    height: 3rem;
+    border-radius: .75rem;
+    z-index: var(--z-nm);
+}
+
+.l_horloge_minutes {
+    width: 160px;
+    height: 160px;
+}
+
+.l_horloge_minutes::before {
+    content: '';
+    position: absolute;
+    /* background-color: var(--text-clr); */
+    background-color: #9c9c9c;
+    width: .25rem;
+    height: 5.6rem;
+    border-radius: .75rem;
+    z-index: var(--z-nm);
+}
+
+
+.l_horloge_seconds {
+    width: 160px;
+    height: 160px; 
+}
+
+.l_horloge_seconds::before {
+    content: '';
+    position: absolute;
+    background-color: var(--body-clr);
+    width: .08rem;
+    height: 5.7rem;
+    border-radius: .5rem;
+    z-index: var(--z-nm);
+}
+
+
+.l_horloge_logo {
+    cursor: pointer;
+    width: max-content;   
+    text-align: center;
+    justify-self: center;
+    margin-bottom: 1.5rem;
+    font-size: var(--xsm-fnt);
+    font-weight: var(--font-reg);
+    color: #b8b8b8;
+}
+
+.l_horloge_logo:hover {
+    transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: .4s;
+    color: var(--body-clr);
+}
+
+
+.l_horloge_text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2.5rem;
+    transition: .5s;
+}
+
+.text_hour, .text_minute {
+    font-size: var(--xlg-fnt);
+    font-weight: 500;
+    color: var(--body-clr);
+}
+
+.text_h {
+    font-size: var(--xsm-fnt);
+    color: var(--body-clr);
+    font-weight: 600;
+    margin-bottom: 2rem;
+    margin-left: .25rem;
+}
+
+
+.l_horloge_date {
+    text-align: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    font-weight: var(--font-reg);
+    color: var(--body-clr);
+    margin-bottom: 2.5rem;
+}
+
+
+/* media queries: mobile*/
+@media screen and (min-width: 968px) {
+    :root {
+        --xlg-fnt: 3.2rem;
+        --nm-fnt: .96rem;
+        --sm-fnt: .84rem;
+        --xsm-clr: .72rem;
+    }
+}
