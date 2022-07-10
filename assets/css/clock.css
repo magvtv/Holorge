@@ -2,16 +2,15 @@
 
 
 :root {
-    /* colors */
+    /* variable colors for light mode (lueur) */
     --hue-clr: 120;
-
     --first-clr: hsl(var(--hue-clr), 100%, 76%) ;
-    --title-clr: hsl(var(--hue-clr), 100%, 76%);
-    --text-clr: hsl(var(--hue-clr), 100%, 76%);
-    --text-light-clr: hsl(var(--hue-clr), 83%, 32%);
+    /* --title-clr: hsl(var(--hue-clr), 100%, 16%); */
+    /* --hand-clr:  */
+    --text-clr: hsl(var(--hue-clr), 50%, 42%);
     /* --wht-clr: #39d688; */
     --wht-clr: #f2f3f4;
-    --body-clr: hsl(var(--hue-clr), 50%, 50%);
+    --body-clr: hsl(var(--hue-clr), 0%, 90%);
 
     /* fonts */
     --body-fnt: 'Marcellus', serif;
@@ -29,6 +28,27 @@
     --z-tooltip: 10;
 }
 
+
+/* variable colors for dark mode */
+body.dark_theme {
+    /* --title-clr: hsl(var(--hue2-clr), 66%, 73%); */
+    --text-clr: hsl(var(--hue-clr), 100%, 76%);
+    --body-clr: hsl(var(--hue-clr), 5%, 5%);
+}
+
+.dark_theme .l_horloge_circle {
+    box-shadow: 10px 10px 20px hsla(var(--hue-clr), 5%, 3%, 1),
+                -10px -10px 20px hsla(var(--hue-clr), 5%, 10%, .35),
+                inset -10px -10px 20px hsla(var(--hue-clr), 5%, 10%, .35), 
+                inset 10px 10px 20px hsla(var(--hue-clr), 5%, 3%, 1)
+}
+
+.dark_theme .l_horloge_theme {
+    box-shadow: inset -1px -1px 1px hsla(var(--hue-clr), 10%, 3%, 1), 
+                inset -1px -1px 1px hsla(var(--hue-clr), 10%, 3%, 1);
+}
+
+
 * {
     box-sizing: border-box;
     padding: 0;
@@ -39,7 +59,8 @@
 body {
     margin: 0;
     font-family: var(--body-fnt);
-    background-color: var(--wht-clr);
+    background-color: var(--body-clr);
+    /* background-color: var(--wht-clr); */
     color: var(--text-clr);
 
 }
@@ -58,12 +79,14 @@ a {
 
 .grid {
     display: grid;
-
 }
 
 
 
-/* dark theme button */
+
+
+
+/* dark theme button (fonce)*/
 .l_horloge_theme {
     font-size: 20px;
     position: absolute;
@@ -72,15 +95,22 @@ a {
     display: flex;
     padding: .45rem;
     border-radius: 50%;
-    box-shadow: inset -1px -1px 1px hsla(var(--hue-clr), 0%, 100%, 1),
-                1px 1px 1px hsla(var(--hue-clr), 30%, 85%, 1);
-
+    
+    box-shadow: inset -1px -1px 1px hsla(var(--hue-clr), 10%, 80%, 0.45), 
+                -1px -1px 1px hsla(var(--hue-clr), 10%, 80%, 0.45);
     cursor: pointer;
     color: #9c9c9c;
-    /* opacity: .75; */
-    /* color: #000; */
+    outline: 0;
+    transform: rotate(360deg);
+    transition: transform .75s;
 }
 
+
+.l_horloge_theme:active {
+   transform: rotate(0deg);
+   -webkit-transform: rotate(45deg);
+   -ms-transform: rotate(45deg);
+}
 
 /* the l'horloge (clock)*/
 .l_horloge_container {
@@ -147,16 +177,16 @@ a {
     position: absolute;
     width: 1rem;
     height: 2.2px;
-    background-color: var(--body-clr);
+    background-color: var(--text-clr);
 }
 
 
 .l_horloge_rounder {
     width: .55rem;
     height: .55rem;
-    background-color: var(--body-clr);
+    background-color: var(--text-clr);
     border-radius: 50%;
-    border: .3px solid var(--body-clr);
+    border: .3px solid var(--text-clr);
     z-index: var(--z-tooltip);
 }
 
@@ -210,7 +240,7 @@ a {
 .l_horloge_seconds::before {
     content: '';
     position: absolute;
-    background-color: var(--body-clr);
+    background-color: var(--text-clr);
     width: .08rem;
     height: 5.7rem;
     border-radius: .5rem;
@@ -232,7 +262,7 @@ a {
 .l_horloge_logo:hover {
     transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
     transition: .4s;
-    color: var(--body-clr);
+    color: var(--text-clr);
 }
 
 
@@ -247,12 +277,12 @@ a {
 .text_hour, .text_minute {
     font-size: var(--xlg-fnt);
     font-weight: 500;
-    color: var(--body-clr);
+    color: var(--text-clr);
 }
 
 .text_h {
     font-size: var(--xsm-fnt);
-    color: var(--body-clr);
+    color: var(--text-clr);
     font-weight: 600;
     margin-bottom: 2rem;
     margin-left: .25rem;
@@ -264,7 +294,7 @@ a {
     justify-content: center;
     font-size: 1.25rem;
     font-weight: var(--font-reg);
-    color: var(--body-clr);
+    color: var(--text-clr);
     margin-bottom: 2.5rem;
 }
 
